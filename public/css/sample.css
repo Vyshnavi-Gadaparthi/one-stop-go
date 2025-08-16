@@ -1,0 +1,17 @@
+@width = 20px
+@mycolor = blue;
+.abc {
+    width: @width;
+    height: 30px;
+    background-color: @mycolor;
+}
+
+#pqr {
+    width: 20px;
+    height: 100px;
+    background-color: @mycolor;
+}
+
+p {
+    background-color: @mycolor;
+}

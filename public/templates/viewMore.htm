@@ -1,0 +1,43 @@
+<div id="viewMoreContainer">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h2>Product Details</h2>
+            </div>
+            <div>
+                <a  class="link" onclick="loadBackProductDetails()"><< Back to Products</a>
+            </div>
+        </div>
+        <div class="row" id="view_productDetailsContainer" >
+        </div>
+    </div>
+
+</div>
+
+<div id="singleViewMoreProductDetails" style="display: none;">
+    <div class="col-md-4">
+        <img src="{{thumbnail}}" alt="">
+    </div>
+    <div class="col-md-7">
+        <ul>
+            <li>
+                Product Name: <span id="view_productName">Eyeshadow Palette with Mirror</span>
+            </li>
+            <li>
+                Price: <span id="view_productPrice">$ {{price}}</span>
+            </li>
+            <li>
+                Category: <span id="view_productCategory">{{category}}</span>
+            </li>
+            <li>
+                Description: <span id="view_productDescription">{{description}}</span>
+            </li>
+            <li>
+                Rating: <span id="view_productRating">{{rating}}</span>
+            </li>
+            <li>
+                <button class="btn btn-primary">Add to Cart</button>
+            </li>
+        </ul>
+    </div>
+</div>

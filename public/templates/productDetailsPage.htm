@@ -1,0 +1,45 @@
+<div class="row" id="productDetailsPage">
+    <div class="col-md-2">
+        <h4>Categories</h4>
+        <ul class="category_options">
+            <li><input type="checkbox" value="beauty"> beauty</li>
+            <li><input type="checkbox" value="fragrances"> fragrances</li>
+            <li><input type="checkbox" value="furniture"> furniture</li>
+            <li><input type="checkbox" value="groceries"> groceries</li>
+            <li><input type="checkbox" value="electronics"> electronics</li>
+            <li><input type="checkbox" value="fashion"> fashion</li>
+            
+        </ul>
+        <hr>
+        Price Range - $ &nbsp; <span id="selectedPriceRange"></span>
+        <ul>
+            <li>
+                <input onchange="setPriceValue()" type="range" class="form-control" id="priceRange" min="0" max="300" value="150">
+            </li>
+        </ul>
+        <div>
+            <button onclick="applyProductFilter()" class="btn btn-success">Filter</button>
+        </div>
+    </div>
+    <div class="col-md-8" id="productDetailsContainer">
+        <div class="row" ></div>
+    </div>
+</div>
+
+<!--Single product template-->
+        <div id="singleProductTmplt" style="display: none;">
+            <div class="card" style="width: 18rem;" >
+                <img src="{{thumbnail}}" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">{{title}}</h5>
+                    <p class="card-text"> {{description}}</p>
+                    <div class="priceblock">
+                        <span class="actualPrice">$&nbsp;{{price}}</span> - 
+                        <span class="discountedPrice">$&nbsp;{{discountedPrice}}</span>
+                    </div>
+                    <div id="rating_c_{{index}}" class="rating_product_container"></div>
+                    <a href="#" class="btn btn-primary btn-sm">Add to cart</a>
+                    <a class="btn btn-primary btn-sm" onclick="viewMoreDetails({{id}})">View more</a>
+                </div>
+            </div>
+        </div>

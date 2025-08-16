@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>One Single Go for Shopping</title>
+        <script src="lib/handlebars.js"></script>
+        <script src="javascripts/captcha.js"></script>
+        <script src="javascripts/rememberMe.js"></script> 
+        <link rel="stylesheet" href="lib/bootstrap/css/bootstrap.min.css">
+        <script src="lib/bootstrap/js/bootstrap.min.js"></script>
+        <script src="lib/axios.js"></script>
+        <script src="lib/jquery.js"></script>
+        <link rel="stylesheet" href="css/app.css">
+        <link rel="stylesheet" href="lib/bootstrap-icons/font/bootstrap-icons.min.css">
+        <script src="javascripts/main.js"></script>
+        <script src="javascripts/productload.js"></script>
+        <script src="lib/rating_lib/rating.js"></script>
+        <link rel="stylesheet" href="lib/rating_lib/rating.css">
+        <script src="javascripts/userSignup.js"></script>
+        <script src="javascripts/viewMore.js"></script>
+        
+        <style>
+    .captcha {
+        font-family: 'Arial';
+        font-size: 24px;
+        letter-spacing: 3px;
+        background-color: #f0f0f0;
+        padding: 10px;
+        width: 190px;
+        text-align: center;
+        user-select: none;
+        margin: 2%;
+        height: 70px;
+    }
+
+    #login-btn{
+        display:none;
+    }
+  </style>
+
+    </head>
+    <body>
+        <header>
+            <div class="row">
+                <div class="col-sm-4">One Stop for Shopping</div>
+                <div class="col-sm-4">                    
+                    <div class="input-group mb-3">
+                    <input type="text" class="form-control" placeholder="Search Prouduct" aria-label="Recipient’s username" aria-describedby="button-addon2">
+                    <button class="btn btn-outline-secondary" type="button" id="button-addon2" style="background-color: orange;">
+                        <i class="bi bi-search"></i>
+                    </button>
+                    </div>
+                </div>
+                <div class="col-sm-4" style="text-align: right;" id="loginContainer">
+                    <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#loginModal">
+                        Login
+                    </button>
+                    <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#signupModal">
+                        Signup
+                    </button>
+                </div>
+                <div class="col-sm-4" style="text-align: right;" id="loggedInUserContainer">
+                    Welcome <span id="loggedInUser" style="color: orange;"></span>
+                    <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#logoutModel">
+                        Logout
+                    </button>
+                </div>
+            </div>
+            
+        </header>
+        <div class="container">
+            <main></main>
+            <footer class="py-5"> <div class="row"> <div class="col-6 col-md-2 mb-3"> <h5>Section</h5> <ul class="nav flex-column"> <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Home</a></li> <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Features</a></li> <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Pricing</a></li> <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">FAQs</a></li> <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">About</a></li> </ul> </div> <div class="col-6 col-md-2 mb-3"> <h5>Section</h5> <ul class="nav flex-column"> <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Home</a></li> <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Features</a></li> <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Pricing</a></li> <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">FAQs</a></li> <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">About</a></li> </ul> </div> <div class="col-6 col-md-2 mb-3"> <h5>Section</h5> <ul class="nav flex-column"> <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Home</a></li> <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Features</a></li> <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Pricing</a></li> <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">FAQs</a></li> <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">About</a></li> </ul> </div> <div class="col-md-5 offset-md-1 mb-3"> <form> <h5>Subscribe to our newsletter</h5> <p>Monthly digest of what's new and exciting from us.</p> <div class="d-flex flex-column flex-sm-row w-100 gap-2"> <label for="newsletter1" class="visually-hidden">Email address</label> <input id="newsletter1" type="email" class="form-control" placeholder="Email address"> <button class="btn btn-primary" type="button">Subscribe</button> </div> </form> </div> </div> <div class="d-flex flex-column flex-sm-row justify-content-between py-4 my-4 border-top"> <p>© 2025 Company, Inc. All rights reserved.</p> <ul class="list-unstyled d-flex"> <li class="ms-3"><a class="link-body-emphasis" href="#" aria-label="Instagram"><svg class="bi" width="24" height="24"><use xlink:href="#instagram"></use></svg></a></li> <li class="ms-3"><a class="link-body-emphasis" href="#" aria-label="Facebook"><svg class="bi" width="24" height="24" aria-hidden="true"><use xlink:href="#facebook"></use></svg></a></li> </ul> </div> </footer>
+        </div>
+
+
+        <!-- Model for Login-->
+         <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Login</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                    <ul>
+                        <li>
+                            <input type="text" class="form-control" placeholder="Account Id" id="accountId">
+                        </li>
+                        <li>
+                            <input type="password" class="form-control" placeholder="Password" id="password">
+                        </li>
+                        <li>
+                            <div class="captcha" id="login"></div>
+
+                            <input type="text" class="form-control-sm" id="userInput" placeholder="Enter CAPTCHA" />
+                             <button type="button" class="btn btn-primary btn-sm" onclick="validateCaptcha(this)">Submit</button>
+                             <button type="button" class="btn btn-primary btn-sm" onclick="generateCaptcha()">Refresh</button>
+                            <p id="result"></p>
+                        </li>
+                        <li>
+                            <input type="checkbox" id="rememberMe"> Remember my Credentials
+                        </li>
+                        <li id="login_err_msg" style="display: none;">
+
+                        </li>
+                    </ul>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button id="login-btn" type="button" class="btn btn-primary" onclick="validateUserCredentials()">Login</button>
+                </div>
+                </div>
+            </div>
+        </div>
+        <!--Signup modal-->
+        <div class="modal fade" id="signupModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">New User Signup</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <ul>
+                        <li>
+                            <input type="text" class="form-control" placeholder="Account Id" id="s_accountId">
+                        </li>
+                        <li>
+                            <input type="password" class="form-control" placeholder="Password" id="s_password">
+                        </li>
+                        <li>
+                            <input type="password" class="form-control" placeholder="Re enter Password" id="rs_password">
+                        </li>
+                        <li>
+                            <input type="text" class="form-control" placeholder="Account Mail Id" id="s_mailid">
+                        </li>
+                        <li>
+                            <input type="number" class="form-control" placeholder="Contact Number" id="s_contact">
+                        </li>
+                        <li>
+                             <div class="captcha" id="signup"></div>
+                            <input type="text" class="form-control-sm" id="userInput1" placeholder="Enter CAPTCHA" />
+                             <button type="button" class="btn btn-primary btn-sm" onclick="validateCaptcha(this)">Submit</button>
+                             <button type="button" class="btn btn-primary btn-sm" onclick="generateCaptcha()">Refresh</button>
+                            <p id="result1"></p>
+                        </li>
+                        <li id="signup_err_msg" style="display: none;">
+
+                        </li>
+                    </ul>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" onclick="doSignup()">Do Singup</button>
+                </div>
+                <div id="signupSuccess">
+                    <span>
+                        Signed Signup Successfuly click on
+                    </span>
+                    <a href="#" class="stretched-link" onclick="openLoginModal()">Login</a>
+                </div>
+                </div>
+                
+            </div>
+        </div>
+
+         <!--Logut modal-->
+        <div class="modal fade" id="logoutModel" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Do you want to logout</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                   Logout from the application
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" onclick="doLogout()">Logout</button>
+                </div>
+
+                </div>
+                
+            </div>
+        </div>
+
+        
+    </body>
+</html>

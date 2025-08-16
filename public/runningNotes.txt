@@ -1,0 +1,116 @@
+24 July:
+    templating:
+        take a static html code, without data, inject the data dynamically through JS is called templating
+    3rd party lib 
+        mustache js 
+        handle bars 
+        jade
+        pug
+        etc...
+    Handlebarsjs:
+        
+
+------------------
+
+25th July :
+    Installation of node js
+
+    Create node server
+        npm install express 
+        npm install express-generator
+        express <webservername>
+
+    Understating of each file and folder been created
+        bin/www
+        app.js 
+        package.json 
+        package.lock.json
+        router -> webservices
+        views 
+
+    Creating webservice 
+        under routes folder create individual js file 
+        keep the logic 
+        configure webservice path in app.js 
+
+    Handle get and post service with data 
+        router.get() -> req.query 
+        router.post() -> req.body 
+----------------------------------------------
+
+Mongodb 
+    collection 
+
+    NoSQL
+        commands
+
+    BSON 
+
+    Historical data 
+
+    Platform independent
+    =====================================================================
+
+    RDBMS - Oracle/sql etc 
+
+    Student details
+
+    SID    Name   AGe  Gender
+    1      RAj     20   Male 
+    2      Teema   20   Female 
+
+    Studentt Passport details  
+
+    SID  PAssport no   VAlidity 
+    1      AB234234     2026
+
+--------------------------------------------------------------
+    NOSQL/Mongodb
+    
+    {sid: 1, name: 'raj', gender: 'Male', passportdetails: {no: 'Aadfa', validity: 2025}, adharDetails: {id: 123, barcode: '23423}}
+
+
+---------------
+
+Aug - 5
+
+Socket io 
+Cluster 
+Server side generated pages 
+Nodemailer - SMTP
+
+-----------
+
+Node js 
+    http server 
+    filie system 
+    creating a simple node server 
+    explored expres ,express generator modules 
+    package.json
+    npm, npmjs.org 
+    creating Get and post webservices 
+    Routing 
+    handle data in get adn post services 
+    req.body, req.query     
+    Multer - > file upload
+    JWT - > authentication
+    Data encryption - security - bcrypt
+    Sessions - express-session 
+    Socket.io - real-time communication
+    Clustering - handling multiple requests 
+    Mongodb - connection 
+    CRUD operations on mongodb 
+    path module 
+
+    -----------------
+
+Realtime streaming data through Socket io communicaiton 
+    REST API - > send req and receive the response 
+
+    Realtime Streaming data -> Publish data, subscribe data 
+
+    Socket io 
+        lib/js code /packages/modules which is used to implement realtime streaming data 
+            client side 
+
+            server side modules 

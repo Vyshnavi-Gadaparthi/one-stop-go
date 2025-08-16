@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <script src="lib/bootstrap/css/bootstrap.min.css"></script>
+        <script src="lib/jquery.js"></script>
+        <link rel="stylesheet" href="css/chatSupport.css">
+        <script src="lib/Socket.io/client-dist/socket.io.min.js"></script>
+        <script src="javascripts/chatSupport.js"></script>
+    </head>
+    <body>
+        <header>
+            Support Chat Application
+            <div class="container"> 
+                <div class="row">
+                    <div class="col-md-12">
+                        <h1>Welcome to the Support Chat</h1>
+                        <p>How can we assist you today?</p>
+                    </div>
+                </div>
+        </header>
+        <main class="container">
+            <div class="row">
+                <div class="chatBlock">
+                    <div class="msgContainer"></div>
+                    <hr>
+                    <div class="buttonContainer">
+                    <div class="input-group mb-3">
+                            <input type="text" class="form-control" placeholder="Search Prouduct" aria-label="Recipient’s username" aria-describedby="button-addon2" id="msg">
+                            <button class="btn btn-outline-secondary btn-lg" type="button" id="button-addon2" style="background-color: orange;" onclick="sendMsg()">
+                                Send
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </body>
+</html>
